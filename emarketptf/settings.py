@@ -14,13 +14,13 @@ from pathlib import Path
 import os
 
 # Read SECRET_KEY from an environment variable
-SECRET_KEY = os.environ['SECRET_KEY']
+#SECRET_KEY = os.environ['SECRET_KEY']
 
 # OR
 
 # Read secret key from a file
-with open('etc/secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
+#with open('etc/secret_key.txt') as f:
+    #SECRET_KEY = f.read().strip()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,13 +31,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-rt25d!3$+0%4ly2af*xkd%20smf*@g*mqoa*i9f0-tuj7svcwu'
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-rt25d!3$+0%4ly2af*xkd%20smf*@g*mqoa*i9f0-tuj7svcwu')
+SECRET_KEY = 'django-insecure-rt25d!3$+0%4ly2af*xkd%20smf*@g*mqoa*i9f0-tuj7svcwu'
+#SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-rt25d!3$+0%4ly2af*xkd%20smf*@g*mqoa*i9f0-tuj7svcwu')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+DEBUG = True
 
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+#DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['https://web-production-c0da.up.railway.app/','127.0.0.1']
 
