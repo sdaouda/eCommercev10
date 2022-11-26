@@ -1,0 +1,28 @@
+% extends "immoapp/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load tz %}
+{% block content %}
+
+<section class="w3l-blog-breadcrum">
+  <div class="breadcrum-bg py-sm-5 py-4">
+    <div class="container py-lg-3">
+
+      <h2> 10 steps to buying a property</h2>
+      <p>FEBRUARY 12, 2020 <a href="index.html"> - by Admin</a></p>
+
+	 </div>
+  </div>
+</section>
+
+<p>okkkkkkkkkkkkkkk</p>
+{{datevar}}
+<ul>
+  {% for alert in alerts %}
+  <li> <a href="{{ alert.get_absolute_url }}">{{alert}}</a></li>
+  {% endfor %}
+{% language 'fr' %}{% now "d M Y" %}{% endlanguage %}
+</ul>
+
+
+{% endblock%}

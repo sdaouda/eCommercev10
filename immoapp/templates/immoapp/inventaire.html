@@ -1,0 +1,9 @@
+{% extends "immoapp/base.html" %}
+{% load static %}
+
+{% block content %}
+{% for bien in immobiliers %}
+{{bien}}<br>
+{% endfor %}
+
+{% endblock%}

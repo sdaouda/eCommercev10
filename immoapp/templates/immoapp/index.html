@@ -1,0 +1,187 @@
+{% extends "immoapp/base.html" %}
+{% load static %}
+
+{% block content %}
+{% include 'immoapp/messages.html' %}
+<section class="form-12" id="home">
+	<div class="form-12-content">
+		<div class="container">
+			<div class="grid grid-column-2 ">
+				<div class="column2">
+					</div>
+				<div class="column1">
+                    <form action ="" method ="Get">
+                        <div class="blog-search form d-flex search-form">
+                            <input type="search" class="form-control" placeholder="recherchez un bien" name="search" required="required">
+                            <button type="submit" class="btn search-btn"><span class="fa fa-search"></span></button>
+                        </div>
+                    </form>
+                    <form action="{% url "recherche" %}" method="Get">
+
+                        <div class="form-top">
+                             <select id="sel1" name="actType">
+                                <option>LOCATION</option>
+                                <option>VENTE</option>
+                                <option>Toutes</option>
+                             </select>
+                             <select id="sel2" name="category">
+                                  {% for cat in categories %}
+                                    <option>{{cat.name}}</option>
+                                  {% endfor %}
+                             </select>
+                        </div>
+
+                        <div class="form-top">
+                            <!--<input type="text" list="cities" placeholder="Region" class="form-control">
+                            <datalist id="cities">
+                                for reg in region
+                                <option value=""></option>
+                                endfor
+                            </datalist>-->
+
+                            <select id="sel3" name="region">
+                                <option>Région</option>
+                                {% for reg in region %}
+                                <option value="{{reg}}">{{reg.region}}</option>
+                                {%endfor%}
+                            </select>
+
+                            <select id="sel4" name="localite">
+                                <option>Localité</option>
+                                <option value="Partout">Partout</option>
+                                {% for loc in localite_dispo %}
+                                <option>{{loc.localite}}</option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                        <div class="form-top">
+                            <button type="submit" class="btn">Recherche</button>
+                        </div>
+
+                    </form>
+                </div>
+
+			</div>
+		</div>
+	</div>
+</section>
+<section class="locations-1" id="locations">
+<div class="locations py-5">
+ <div class="container py-md-3">
+    <div class="heading text-center mx-auto">
+        <h3 class="head">A la Une</h3>
+        <p class="my-3 head "> Les derniers Biens ajoutés.</p>
+      </div>
+            <div class="row mt-3 pt-5">
+                <div class="col-md-4 col-sm-6">
+                    <div class="box16">
+                        <img class="img-fluid" src="{% static "/assets/images/g1.jpg" %}" alt="">
+                        <div class="box-content">
+                            <h3 class="title">Austin</h3>
+                            <span class="post">2 Listings</span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="box16">
+                        <img class="img-fluid" src="{% static "/assets/images/g2.jpg" %}" alt="">
+                        <div class="box-content">
+                            <h3 class="title">Chicago</h3>
+                            <span class="post">2 Listings</span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mt-lg-0 pt-lg-0 mt-md-4 pt-md-2">
+                    <div class="box16">
+                        <img class="img-fluid" src="{% static "/assets/images/g3.jpg" %}" alt="">
+                        <div class="box-content">
+                            <h3 class="title">Dallas</h3>
+                            <span class="post">2 Listings</span>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+	 </div>
+ </section>
+<section class="grids-4" id="properties">
+    <div id="grids4-block" class="py-5">
+       <div class="container py-md-3">
+            <div class="heading text-center mx-auto">
+                <h3 class="head">Nos biens disponibles</h3>
+                <p class="my-3 head"> 1. Choisisez le bien <br> 2. Envoyer votre contact <br> 3. Et nous vous contactons</p>
+            </div>
+            <div class="row mt-5 pt-3">
+                {% for bien in immobiliers %}
+                <div class="grids4-info col-lg-4 col-md-6 mt-md-0 mt-5">
+                        <a href="{{ bien.get_absolute_url }}">
+                            <img src="{% if bien.imageoriginal %}{{ bien.imageoriginal.url }}{% else %}{% static "/assets/images/no_image.jpg" %}{% endif %}" class="img-fluid" alt="">
+                        </a>
+                        <ul class="location-top">
+                            <li class="rent">{{bien.action_type}}</li>
+                            <li class="open-1">{{bien.category}}</li>
+                        </ul>
+                        <div class="info-bg">
+                            <h5><a href="blog-single.html">{{bien.name}}</a></h5>
+                            <p>{{bien.localite}}</p>
+                            <p>{{bien.price}} cfa</p>
+                            <ul>
+                                <li><span class="fa fa-bed"></span>{{bien.nbChambre}}</li>
+                                <li><span class="fa fa-bath"></span> {{bien.nbDouche}}</li>
+                                <li><span class="fa fa-share-square-o"></span>{{bien.dimmension}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+       </div>
+    </div>
+</section>
+<section class="w3l-specifications-9">
+    <div class="main-w3 py-5" id="stats">
+        <div class="container py-md-3">
+            <div class="heading text-center mx-auto">
+                <h3 class="head">Tout pour l'immobilier au Niger.</h3>
+                <p class="my-3 head "> 1. réservation d'hotel <br> 2. Vente parcelle <br> 3. Vente , location, location-vente d'immobilier
+                <br> 4. location d'espace de loisir (villa de luxe, jardin, espace publique)</p>
+              </div>
+           <div class="main-cont-wthree-fea row pt-3 mt-5">
+                <div class="grids-speci1 col-lg-3 col-6">
+                    <div class="spec-2 text-center">
+                        <span class="fa fa-map-marker"></span>
+                    <h3 class="title-spe">180+</h3>
+                    <p>Property Locations</p>
+                </div>
+                </div>
+                <div class="grids-speci1 midd-eff-spe col-lg-3 col-6">
+                    <div class="spec-2 text-center">
+                    <span class="fa fa-users"></span>
+                    <h3 class="title-spe">100+</h3>
+                    <p>Professional Agents</p>
+                    </div>
+                </div>
+                <div class="grids-speci1 las-but col-lg-3 col-6  mt-lg-0 mt-4">
+                    <div class="spec-2 text-center">
+                    <span class="fa fa-building"></span>
+                    <h3 class="title-spe">250+</h3>
+                    <p>Property for Sell</p>
+                    </div>
+                </div>
+                <div class="grids-speci1 las-t col-lg-3 col-6  mt-lg-0 mt-4">
+                    <div class="spec-2 text-center">
+                     <span class="fa fa-home"></span>
+                        <h3 class="title-spe">3200+ </h3>
+                        <p>Property for Rent</p>
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- //specifications -->
+</section>
+{% endblock%}

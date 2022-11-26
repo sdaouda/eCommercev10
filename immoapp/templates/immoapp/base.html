@@ -1,0 +1,207 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      {% load static %}
+      <title>Estate Agent a Real Estate Category Bootstrap Responsive Website Template | Home </title>
+    <!-- web fonts -->
+      <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+      <link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+    <!-- //web fonts -->
+    <!-- Template CSS -->
+      <link href="{% static "assets/css/mainstyle.css" %}" rel="stylesheet" type="text/css" media="all"/>
+<!--      <link href="{% static "assets/css/style.css" %}" rel="stylesheet" type="text/css" media="all"/>-->
+  </head>
+  <body>
+
+
+<!-- Top Menu 1 -->
+<section class="w3l-top-menu-1">
+	<div class="top-hd">
+		<div class="container">
+	<header class="row">
+		<div class="social-top col-lg-3 col-6">
+			<li>Follow Us</li>
+			<li><a href="#"><span class="fa fa-facebook"></span></a></li>
+			<li><a href="#"><span class="fa fa-instagram"></span></a> </li>
+				<li><a href="#"><span class="fa fa-twitter"></span></a></li>
+				<li><a href="#"><span class="fa fa-whatsapp"></span></a> </li>
+		</div>
+		<div class="accounts col-lg-9 col-6">
+				<li class="top_li"><span class="fa fa-mobile"></span><a href="tel:+142 5897555">+227 98971932</a> </li>
+				<li class="top_li1"><a href="#">Connexion</a></li>
+				<li class="top_li2"><a href="#">Inscription</a></li>
+		</div>
+		
+	</header>
+</div>
+</div>
+</section>
+<!-- //Top Menu 1 -->
+<section class="w3l-bootstrap-header">
+  <nav class="navbar navbar-expand-lg navbar-light py-lg-2 py-2">
+    <div class="container">
+      <a class="navbar-brand" href="{% url "index" %}"><span class="fa fa-home"></span> Estate Agent</a>
+      <!-- if logo is image enable this   
+    <a class="navbar-brand" href="#index.html">
+        <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+    </a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon fa fa-bars"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "index" %}">Acceuil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url "recherche" %}">Agence</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Services
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="">Nos services</a>
+              <a class="dropdown-item" href="/admin/">Administration</a>
+              <a class="dropdown-item" href="blog-single.html">Statistiques</a>
+              <a class="dropdown-item" href="{% url "alertlist" %}">Modifier une Alerte</a>
+              <a class="dropdown-item" href="{% url "inventaire" %}">Liste des Biens</a>
+<!--              <a class="dropdown-item" href="single.html">Landing Page</a>-->
+             </div>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item mr-0">
+            <a href = "{% url 'alert' %}" type="button" class="btn btn-danger"><i class="fa fa-bell-o fa-1x"></i> Créer une alerte</a>
+          </li>
+        </ul>
+       
+      </div>
+    </div>
+  </nav>
+</section>
+<!--<div class="alert alert-success" role="alert">
+  A simple success alert—check it out!
+</div>-->
+
+ {% block content %}{% endblock %}
+ <!-- grids block 5 -->
+ <section class="w3l-footer-29-main" id="footer">
+  <div class="footer-29">
+    <div class="grids-forms-1 pb-5">
+<div class="container">
+  <div class="grids-forms">
+      <div class="main-midd">
+          <h4 class="title-head">Le Grand Marché Virtuel</h4>
+          
+      </div>
+      <div class="main-midd-2">
+          <form action="#" method="post" class="rightside-form">
+              <input type="email" name="email" placeholder="email/numero">
+              <button class="btn" type="submit">s'abonner</button>
+          </form>
+      </div>
+    </div>
+  </div>
+  </div>
+      <div class="container pt-5">
+        
+          <div class="d-grid grid-col-4 footer-top-29">
+              <div class="footer-list-29 footer-1">
+                  <h6 class="footer-title-29">Nous !!!</h6>
+                  <ul>
+                     <p>L'agence immobiliere Terre, specialistes en vente et location de Terrain, Villa et tout autre type de bien relatifs a l'immobilier.</p>
+                  </ul>
+                  <div class="main-social-footer-29">
+                    <h6 class="footer-title-29">Réseaux sociaux</h6>
+                      <a href="#facebook" class="facebook"><span class="fa fa-whatsapp"></span></a>
+                      <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+                      <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+                      <a href="#linkedin" class="linkedin"><span class="fa fa-facebook"></span></a>
+                  </div>
+              </div>
+              <div class="footer-list-29 footer-2">
+                  <ul>
+                      <h6 class="footer-title-29">Liens Utiles</h6>
+                      <li><a href="services.html">Secteurs les plus valoririsés</a></li>
+                      <li><a href="services.html">l'immobilier au Niger</a></li>
+                  </ul>
+              </div>
+              <div class="footer-list-29 footer-3">
+                  <ul>
+                      <h6 class="footer-title-29">Racourcis</h6>
+                      <li><a href="index.html">Acceil</a></li>
+                      <li><a href="about.html">Contact</a></li>
+                      <li><a href="services.html">Services</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="bottom-copies text-center">
+              <p class="copy-footer-29">© 2022 Estate Agent. All rights reserved.</p>
+               
+          </div>
+      </div>
+  </div>
+   <!-- move top -->
+  <button onclick="topFunction()" id="movetop" title="Go to top">
+      <span class="fa fa-angle-up"></span>
+  </button>
+         <script>
+             // When the user scrolls down 20px from the top of the document, show the button
+             window.onscroll = function () {
+                 scrollFunction()
+             };
+
+             function scrollFunction() {
+                 if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                     document.getElementById("movetop").style.display = "block";
+                 } else {
+                     document.getElementById("movetop").style.display = "none";
+                 }
+             }
+
+             // When the user clicks on the button, scroll to the top of the document
+             function topFunction() {
+                 document.body.scrollTop = 0;
+                 document.documentElement.scrollTop = 0;
+             }
+         </script>
+         <!-- /move top -->
+</section>
+<!-- // grids block 5 -->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<!-- //footer-28 block -->
+</section>
+
+<script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+<!-- Smooth scrolling -->
+
+
+</body>
+
+</html>
+<!-- // grids block 5 -->

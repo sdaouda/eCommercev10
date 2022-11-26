@@ -1,0 +1,53 @@
+{% extends "immoapp/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<section class="w3l-blog-breadcrum">
+  <div class="breadcrum-bg py-sm-5 py-4">
+    <div class="container py-lg-3">
+
+      <h2> 10 steps to buying a property</h2>
+      <p>FEBRUARY 12, 2020 <a href="index.html"> - by Admin</a></p>
+
+	 </div>
+  </div>
+</section>
+<section class="grids-4" id="properties">
+    <div id="grids4-block" class="py-5">
+       <div class="container py-md-3">
+            <div class="heading text-center mx-auto">
+                <h3 class="head">Properties For sale</h3>
+                <p class="my-3 head"> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                Nulla mollis dapibus nunc, ut rhoncus
+                turpis sodales quis. Integer sit amet mattis quam.</p>
+            </div>
+            <div class="row mt-5 pt-3">
+                {% for bien in queryset_list %}
+                <div class="grids4-info col-lg-4 col-md-6 mt-md-0 mt-5">
+                        <a href="{{ bien.get_absolute_url }}">
+                            <img src="{% if bien.imageoriginal %}{{ bien.imageoriginal.url }}{% else %}{% static "/assets/images/no_image.jpg" %}{% endif %}" class="img-fluid" alt="">
+                        </a>
+                        <ul class="location-top">
+                            <li class="rent">{{bien.action_type}}</li>
+                            <li class="open-1">{{bien.category}}</li>
+                        </ul>
+                        <div class="info-bg">
+                            <h5><a href="blog-single.html">{{bien.name}}</a></h5>
+                            <p>{{bien.localite}}</p>
+                            <p>{{bien.price}} cfa</p>
+                            <ul>
+                                <li><span class="fa fa-bed"></span>{{bien.nbChambre}}</li>
+                                <li><span class="fa fa-bath"></span> {{bien.nbDouche}}</li>
+                                <li><span class="fa fa-share-square-o"></span>{{bien.dimmension}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+       </div>
+    </div>
+</section>
+
+
+{% endblock%}

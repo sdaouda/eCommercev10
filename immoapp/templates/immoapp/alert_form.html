@@ -1,0 +1,88 @@
+{% extends "immoapp/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load tz %}
+{% block content %}
+
+<section class="grids-4" id="properties">
+    <form action="{% url "alertrec" %}" method ="post">
+      {% csrf_token %}
+      <div class="container">
+        <div class="row justify-content-center">
+          <p><h3><b>Créer une alerte</b></h3></p>
+        </div>
+        <div class="row mx-4">
+            <label for="basic-url" class="form-label"><b>Titre de l’alerte</b></label>
+            <div class="input-group mb-3">
+              <input type="text" id="basic-url" name="alertname" class="form-control" aria-describedby="basic-addon3">
+              <div class="input-group mb-3"><p class="fs-6">Ajoutez un titre pour vous souvenir de cette alerte.</p></div>
+              <input type="text" name="created" value="{% now "d M Y" %}" class="form-control" aria-describedby="basic-addon3">
+            </div>
+        </div>
+          <div class="row mx-4">
+            <label for="basic-url" class="form-label"><b>1 - Lieux</b></label>
+            <div class="input-group mb-3"><b>Où recherchez-vous un bien immobilier ?</b></div>
+            <div class="input-group mb-3">
+              <input type="text" id="basic-url" class="form-control" name = "lieux" aria-describedby="basic-addon3">
+            </div>
+          </div>
+
+          <div class="row mx-4">
+            <label for="basic-url" class="form-label"><b>2 - Critères</b></label>
+            <div class="input-group mb-3"><b>Donnez nous plus de détails sur votre recherche.</b></div>
+            <div class="input-group mb-3">
+              <select class="form-select form-select-lg mb-3 form-control" name = "typebien" aria-label=".form-select-lg example">
+                {% for cat in categories %}
+                  <option>{{cat.name}}</option>
+                {% endfor %}
+              </select>
+              <select class="form-select form-select-lg mb-3 form-control" name="typetransaction" aria-label=".form-select-lg example">
+                <option>Achat</option>
+                <option>Location</option>
+                <option>Cours séjour</option>
+                <option>Autres</option>
+              </select>
+<!--              <input type="text" id="basic-url" class="form-control" aria-describedby="basic-addon3">-->
+            </div>
+          </div>
+
+          <div class="row mx-4">
+            <label for="basic-url" class="form-label"><b>3 - Budget max</b></label>
+            <div class="input-group mb-3"><b>Dans quelle tranche de prix cherchez vous ?</b></div>
+            <div class="input-group mb-3">
+              <input type="text" id="basic-url" class="form-control" name="budget" aria-describedby="basic-addon3">
+            </div>
+          </div>
+
+          <div class="row mx-4">
+            <label for="basic-url" class="form-label"><b>4 - Contact</b></label>
+            <div class="input-group mb-3"><b>Comment souhaitez-vous être contacté ?</b></div>
+            <div class="input-group mb-3">
+              <select class="form-select form-select-lg mb-3 form-control" name="typecontact" aria-label=".form-select-lg example">
+                <option selected>Whatsapp/Appel</option>
+                <option>Whatsapp</option>
+                <option>SMS</option>
+                <option>Autres</option>
+              </select>
+              <div class="input-group mb-3">
+                <input type="text" id="basic-url" class="form-control" name="alertcontact" aria-describedby="basic-addon3" placeholder="96969676">
+              </div>
+            </div>
+          </div>
+
+          <div class="row mx-4">
+            <label for="basic-url" class="form-label"><b>Information supplémentaire</b></label>
+            <div class="input-group mb-3">
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="commentaire" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="row mx-4">
+            <button type="submit" class="btn btn-secondary btn-theme2 mt-3 mb-3">Lancer l'Alerte</button>
+          </div>
+      </div>
+
+    </form>
+</section>
+
+
+{% endblock%}

@@ -1,0 +1,36 @@
+{% extends "immoapp/base.html" %}
+{% load static %}
+{% block content %}
+<section class="w3l-blog-breadcrum">
+  <div class="breadcrum-bg py-sm-5 py-4">
+    <div class="container py-lg-3">
+
+      <h2> 10 steps to buying a property</h2>
+      <p>FEBRUARY 12, 2020 <a href="index.html"> - by Admin</a></p>
+
+	 </div>
+  </div>
+</section>
+<section class="text-11 grids-4">
+    <div class="container py-md-3">
+        <div class="row justify-content-center">
+          <form action="{% url "ajoutez_image" %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table border="1">
+            {% for field in form.visible_fields %}
+              <tr>
+                <th>{{ field.label_tag }}</th>
+                <td>
+                  {{ field.errors }}
+                  {{ field }}
+                  {{ field.help_text }}
+                </td>
+              </tr>
+            {% endfor %}
+            </table>
+            <button type="submit" class="btn btn-secondary btn-theme2 mt-3">OK</button>
+          </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
