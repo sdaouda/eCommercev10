@@ -19,8 +19,8 @@ import os
 # OR
 
 # Read secret key from a file
-with open('/etc/secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
+#with open('/etc/secret_key.txt') as f:
+    #SECRET_KEY = f.read().strip()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
