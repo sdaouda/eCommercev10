@@ -39,7 +39,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-rt25d!3$+0%4ly
 
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['https://web-production-a220.up.railway.app', '127.0.0.1']
+ALLOWED_HOSTS = ['web-production-a220.up.railway.app', '127.0.0.1']
 
 ## For example, for a site URL is at 'web-production-3640.up.railway.app'
 ## (replace the string below with your own site URL):
